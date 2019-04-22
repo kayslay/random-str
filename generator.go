@@ -55,6 +55,7 @@ func randForSymbol() byte {
 	return randInt(charRange[0], charRange[1])
 }
 
-func randInt(min int, max int) byte {
-	return byte(min + r.Intn(max-min))
+// randByte return a byte which ascii value is within min and max
+func randByte(min int, max int) byte {
+	return byte(min + r.Intn(max-min+1))
 }
