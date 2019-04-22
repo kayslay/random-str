@@ -19,9 +19,13 @@ func WriteN(n int, format ...rune) string
 ### Format
 
 `A`: return only uppercase `(ABC)`
+
 `a`: return only lowercase `(abc)`
+
 `d`: return only digits `(123)`
+
 `s`: return only symbols `(&^%)`
+
 `*`: return only any `(Aa1*)`
 
 [examples](./example)
