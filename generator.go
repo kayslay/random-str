@@ -6,13 +6,16 @@ import (
 )
 
 var (
-	r            = rand.New(rand.NewSource(time.Now().UnixNano()))
+	r = rand.New(rand.NewSource(time.Now().UnixNano()))
+	// a map given the start and end range of characters for uppercase alphabets, lowercase alphabets, digits and all characters
 	charRangeMap = map[rune][2]int{
 		'A': [2]int{65, 90},
 		'a': [2]int{97, 122},
 		'd': [2]int{48, 57},
 		'*': [2]int{32, 127},
 	}
+	// since symbol are not arranged in the same place on the ascii table, symRanges
+	// hold the different start and end positions of symbols on the ascii table
 	symRanges = [][2]int{[2]int{33, 47}, [2]int{58, 64}, [2]int{91, 96}, [2]int{123, 126}}
 )
 
@@ -39,7 +42,10 @@ func WriteFromFormat(format string) string {
 
 }
 
+// randChar returns a random char based on the value of c.
+// if c is not a valid format type, "*" will be used as the format
 func randomChar(c rune) byte {
+	// check if c is expecting a symbol
 	if c == 's' {
 		return randForSymbol()
 	}
@@ -47,12 +53,13 @@ func randomChar(c rune) byte {
 	if !ok {
 		v = charRangeMap['*']
 	}
-	return randInt(v[0], v[1])
+	return randByte(v[0], v[1])
 }
 
+// return a random symbol char
 func randForSymbol() byte {
 	charRange := symRanges[r.Intn(len(symRanges))]
-	return randInt(charRange[0], charRange[1])
+	return randByte(charRange[0], charRange[1])
 }
 
 // randByte return a byte which ascii value is within min and max
