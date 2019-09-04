@@ -2,7 +2,8 @@ package main
 
 import (
 	"fmt"
-	"github.com/kayslay/random-str"
+
+	str "github.com/kayslay/random-str"
 )
 
 func main() {
