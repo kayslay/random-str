@@ -2,6 +2,10 @@
 
 [![CircleCI](https://circleci.com/gh/kayslay/random-str.svg?style=svg)](https://circleci.com/gh/kayslay/random-str)
 
+```go
+str "github.com/kayslay/random-str"
+```
+
 Package random-str generates random strings that follow a format.
 
 Example usage:
